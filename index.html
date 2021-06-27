@@ -3,11 +3,123 @@
 <head>
     <meta charset="UTF-8">
     <title>JavaScript examples</title>
-<!--    <script src="Recursion/scripts.js"></script>-->
-<!--    <script src="Sort/script.js"></script>-->
-<!--    <script src="BitOperations/script.js"></script>-->
-    <script src="BinarySearch/script.js"></script>
 </head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+<style>
+    body{
+        height: 100vh;
+        padding-top: 8vh;
+        width: 50vw;
+        margin: 0 auto;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        font-family: 'Source Code Pro', monospace;
+    }
+
+    .title{
+        font-size: 40px;
+        text-align: center;
+        font-weight: bold;
+        margin-bottom: 5vh;
+    }
+
+    .buttons{
+        display: flex;
+        flex-direction: column;
+        
+    }
+    span{
+        position: relative;
+        display: inline-flex;
+        width: 200px;
+        height: 55px;
+        margin: 0  0 5vh;
+        perspective: 1000px;
+    }
+    span a{
+        font-size: 19px;
+        letter-spacing: 1px;
+        transform-style: preserve-3d;
+        transform: translateZ(-25px);
+        transition: transform .25s;
+
+    }
+
+    span.binary a:before,
+    span.binary a:after{
+        content: "Binary search";
+    }
+
+    span.bit a:before,
+    span.bit a:after{
+        content: "Bit operations";
+    }
+
+    span.recursion a:before,
+    span.recursion a:after{
+        content: "Recursion";
+    }
+
+    span.sort a:before,
+    span.sort a:after{
+        content: "Sort";
+    }
+
+    span a:before,
+    span a:after{
+        position: absolute;
+        content: "";
+        height: 55px;
+        width: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 5px solid black;
+        box-sizing: border-box;
+        border-radius: 5px;
+    }
+    span a:before{
+        color: #fff;
+        background: #000;
+        transform: rotateY(0deg) translateZ(25px);
+    }
+    span a:after{
+        color: #000;
+        transform: rotateX(90deg) translateZ(25px);
+    }
+    span a:hover{
+        transform: translateZ(-25px) rotateX(-90deg);
+    }
+
+    .ready{
+        margin-top: 5vh;
+        font-size: 20px;
+        opacity: 0;
+        text-align: center;
+        transition: .3ms ease-in-out;
+
+    }
+    .ready.active{
+        opacity: 1;
+        transition: opacity .1s ease-in-out .1s;
+    }
+</style>
 <body>
+<div class="title">Push the button to run needed script. And open you browser's console</div>
+<div class="buttons">
+    <span class="binary" data-script="binaryScript"><a href="#"></a></span>
+    <span class="bit" data-script="bitScript"><a href="#"></a></span>
+    <span class="recursion" data-script="recursionScript"><a href="#"></a></span>
+    <span class="sort" data-script="sortScript"><a href="#"></a></span>
+</div>
+<div class="ready">
+    Script is ready. Open your browser's console
+</div>
+<script src="app.js" type="module"></script>
 </body>
 </html>
